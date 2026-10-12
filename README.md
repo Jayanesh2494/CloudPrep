@@ -1,50 +1,75 @@
-# CloudPrep — AWS Certified Cloud Practitioner (CLF-C02) Practice Platform
+<div align="center">
 
-CloudPrep is a full-featured, responsive exam preparation platform for the **AWS Certified Cloud Practitioner (CLF-C02)** certification exam. Designed with a clean, minimal light theme, it offers realistic 65-question timed mock exams, self-paced practice drills, detailed performance diagnostics, and zero-login local privacy.
+# ☁️ CloudPrep
+### AWS Certified Cloud Practitioner (CLF-C02) Practice Platform
 
----
+[![Live Demo](https://img.shields.io/badge/Live_Demo-cloud--prep.vercel.app-0070F3?style=for-the-badge&logo=vercel&logoColor=white)](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.4-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-## Key Features
+<br />
 
-- **Full-Length 65-Question Mock Exams**: 9 comprehensive mock exams matching the official AWS blueprint (90-minute timer, question navigator palette, flagged review system, and scaled score calculation out of 1000 with a 700 passing cutoff).
-- **Dual Taking Modes**:
-  - **Exam Mode**: Strict 90-minute countdown with all answer feedback hidden until final submission.
-  - **Practice Mode**: Untimed with instant or blind answer reveals, detailed explanations, and direct links to official AWS documentation.
-- **Diagnostic Performance Dashboard**: Real-time exam readiness gauge, domain-by-domain mastery matrix across all 4 CLF-C02 blueprint domains, time efficiency tracking against the official 83s/question benchmark, and targeted weak-spot remediation.
-- **Dedicated Review Hubs**: Quick one-click drills for missed questions and saved bookmarks.
-- **Client-Side Storage & Zero Login**: All question progress, attempts, and bookmarks persist directly in your browser's `localStorage` — no account creation, passwords, or external database required.
-- **Minimal Light Theme**: High-contrast, clean slate typography, curated accent colors, and fully responsive layout for desktop, tablet, and mobile.
+**A responsive, production-grade exam preparation platform for the AWS Certified Cloud Practitioner (CLF-C02) exam.**  
+Equipped with realistic 65-question timed mock exams, self-paced practice drills, real-time performance analytics, and zero-login client-side persistence.
 
----
+[🚀 **Launch Live Application**](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/) • [📖 **Explore Documentation**](#-key-features) • [🛠️ **Add Questions**](#-how-to-update--add-service-wise-questions)
 
-## Tech Stack
-
-- **Framework**: Next.js 16 (App Router)
-- **UI & Logic**: React 19, TypeScript
-- **Styling**: Tailwind CSS v4 (Minimal Light Design System)
-- **Icons**: Lucide React
-- **Storage**: Browser LocalStorage with type-safe state handlers
-- **Hosting**: Zero-config static output on Vercel
+</div>
 
 ---
 
-## How to Update or Add Service-Wise Questions
+## 🌐 Live Deployment
 
-All questions in CloudPrep are centrally managed in a single, type-safe JSON file:
+> **Production URL**: [https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/)  
+> Hosted on **Vercel** with zero-config static optimization and instant client-side execution.
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---|---|
+| ⏱️ **65-Question Mock Exams** | 9 full-length simulation tests adhering strictly to the official AWS blueprint (90-minute countdown, question palette, review flags, and scaled score calculation out of 1000). |
+| 🎛️ **Dual Taking Modes** | **Exam Mode** (strict 90m timer, zero answer reveals before submission) or **Practice Mode** (untimed, instant explanations, and official AWS documentation references). |
+| 📊 **Performance & Readiness Dashboard** | Real-time gauge calculating readiness percentage against the official **700 / 1000** passing line, domain-by-domain mastery bars, and pacing speed analytics (83s/question benchmark). |
+| 🎯 **Targeted Remediation Hubs** | Dedicated centers to immediately practice **Missed Questions** and review **Bookmarked Questions**. |
+| 🔒 **Zero-Login & 100% Privacy** | Immediate access without credentials or sign-up. All study progress, scores, and bookmarks persist directly in your browser's `localStorage`. |
+| 🎨 **Minimal Light Theme** | Clean typography, subtle slate borders, accessible contrast ratios, and complete responsiveness across mobile, tablet, and desktop. |
+
+---
+
+## 🏛️ Official CLF-C02 Blueprint Alignment
+
+CloudPrep structures its questions and diagnostic performance tracking according to the four official AWS CLF-C02 examination domains:
+
+| Domain | Exam Weight | Key Competencies |
+|:---:|:---:|---|
+| **Domain 1** | **24%** | **Cloud Concepts**: AWS Cloud value proposition, cloud economics, agility, global infrastructure, and Well-Architected Framework pillars. |
+| **Domain 2** | **30%** | **Security and Compliance**: AWS Shared Responsibility Model, IAM policies and MFA, security services (GuardDuty, Shield, WAF, KMS), and compliance frameworks. |
+| **Domain 3** | **34%** | **Cloud Technology and Services**: Core compute (EC2, Lambda, ECS, Fargate), storage (S3, EBS, EFS), databases (RDS, DynamoDB, Aurora), and networking (VPC, CloudFront, Route 53). |
+| **Domain 4** | **12%** | **Billing, Pricing, and Support**: Pricing models (On-Demand, Reserved, Spot), AWS Organizations consolidated billing, Cost Explorer, Budgets, and AWS Support tiers. |
+
+---
+
+## 📦 How to Update & Add Service-Wise Questions
+
+All question data is stored centrally in a clean, versioned JSON file:
 
 ```text
 src/data/questions.json
 ```
 
-### 1. Question Schema
+### 1. Question JSON Schema
 
-Each question object in `src/data/questions.json` follows this format:
+To add new questions or expand coverage for specific AWS services, append a question object to `src/data/questions.json`:
 
 ```json
 {
   "id": "clf-q559",
   "number": 559,
-  "questionText": "Which AWS service provides a fully managed NoSQL database with single-digit millisecond latency?",
+  "questionText": "Which AWS service provides a fully managed NoSQL database with single-digit millisecond latency at any scale?",
   "type": "single",
   "options": [
     { "id": "A", "text": "Amazon RDS" },
@@ -53,7 +78,7 @@ Each question object in `src/data/questions.json` follows this format:
     { "id": "D", "text": "Amazon Aurora" }
   ],
   "correctOptionIds": ["B"],
-  "explanation": "Amazon DynamoDB is a key-value and document database that delivers single-digit millisecond performance at any scale.",
+  "explanation": "Amazon DynamoDB is a serverless, key-value and document NoSQL database that delivers single-digit millisecond performance at any scale.",
   "references": [
     {
       "title": "Amazon DynamoDB Documentation",
@@ -68,97 +93,140 @@ Each question object in `src/data/questions.json` follows this format:
     "Domain-3",
     "Amazon DynamoDB",
     "NoSQL",
-    "Database Services"
+    "Databases"
   ],
   "status": "published",
   "contentVersion": 1
 }
 ```
 
-### 2. Field Specifications
+### 2. Multi-Select Questions Format
 
-| Field | Type | Description |
-|---|---|---|
-| `id` | `string` | Unique identifier (e.g. `"clf-q559"`). |
-| `number` | `number` | Sequential question index. |
-| `questionText` | `string` | The scenario or question prompt. |
-| `type` | `"single" \| "multiple"` | Single-select (1 correct answer) or multi-select (e.g. choose two). |
-| `options` | `Array<{ id: string, text: string }>` | Option identifiers (`"A"`, `"B"`, etc.) and text. |
-| `correctOptionIds` | `string[]` | Array of correct option letters (e.g. `["B"]` or `["A", "C"]`). |
-| `explanation` | `string` | Educational explanation shown after answering or submitting. |
-| `references` | `Array<{ title?: string, url: string }>` | Links to official AWS whitepapers, documentation, or FAQs. |
-| `domain` | `1 \| 2 \| 3 \| 4` | Mapped CLF-C02 exam domain: <br>• `1`: Cloud Concepts (24%)<br>• `2`: Security and Compliance (30%)<br>• `3`: Cloud Technology and Services (34%)<br>• `4`: Billing, Pricing, and Support (12%) |
-| `topic` | `string` | High-level category (e.g. `"Compute"`, `"Storage"`, `"Security"`, `"Networking"`). |
-| `tags` | `string[]` | **Service-wise keywords** (e.g. `["Amazon S3", "Storage", "Encryption"]`). |
+For questions with multiple correct options (e.g., *"Which two of the following..."*), set `"type": "multiple"` and provide all correct option IDs:
 
-### 3. How Service-Wise Search & Filtering Works
+```json
+{
+  "type": "multiple",
+  "correctOptionIds": ["A", "D"]
+}
+```
 
-The Practice Mode search engine (`filterQuestions` in [`src/lib/questions.ts`](src/lib/questions.ts)) automatically indexes:
+### 3. Service Tagging & Instant Search
+
+CloudPrep's practice search engine (`filterQuestions` in [`src/lib/questions.ts`](src/lib/questions.ts)) automatically indexes:
 - The question text
-- All option text
-- The explanation
-- **All items in the `tags` array**
+- All option choices
+- The explanation text
+- **Every tag in the `tags` array**
 
-When learners type an AWS service name (such as `"S3"`, `"EC2"`, `"IAM"`, `"Lambda"`, `"CloudFront"`, or `"Billing"`) into the search bar, the engine instantly matches all questions tagged with that service.
+When learners type any AWS service name (e.g. `S3`, `EC2`, `Lambda`, `IAM`, `CloudFront`, `VPC`, `Organizations`) into the search bar, CloudPrep instantly filters all matching questions.
 
-### 4. Creating Service-Specific Mock Exams or Drills (Optional)
+### 4. Creating Dedicated Service-Specific Drills (Optional)
 
-To create a dedicated service drill (e.g., a 20-question drill focused purely on AWS Storage or Security), add a new definition in [`src/lib/mockExams.ts`](src/lib/mockExams.ts):
+You can define custom, service-specific practice exams in [`src/lib/mockExams.ts`](src/lib/mockExams.ts):
 
 ```typescript
 {
-  id: "mock-storage-specialist",
-  title: "AWS Storage Services Drill",
-  description: "Targeted questions on Amazon S3, EBS, EFS, and AWS Backup.",
-  questionCount: 20,
-  durationMinutes: 30,
+  id: "mock-security-drill",
+  title: "AWS Security & Identity Specialist Drill",
+  description: "Targeted drill covering IAM, AWS KMS, GuardDuty, AWS WAF, and Shield.",
+  questionCount: 25,
+  durationMinutes: 35,
   questionIds: allQuestions
-    .filter((q) => q.tags.some((t) => t.toLowerCase().includes("s3") || t.toLowerCase().includes("storage")))
+    .filter((q) => q.tags.some((t) => t.toLowerCase().includes("security") || t.toLowerCase().includes("iam")))
     .map((q) => q.id),
 }
 ```
 
 ---
 
-## Local Development
+## 📂 Project Architecture
+
+```text
+CloudPrep/
+├── public/                 # Static assets and icons
+├── src/
+│   ├── app/                # Next.js App Router pages
+│   │   ├── bookmarks/      # Bookmarked questions review
+│   │   ├── dashboard/      # Main prep overview and quick stats
+│   │   ├── exam/           # 65-question mock exam hub & runner
+│   │   ├── history/        # Historical mock exam records
+│   │   ├── performance/    # Diagnostic performance dashboard
+│   │   ├── practice/       # Self-paced practice mode
+│   │   ├── privacy/        # Privacy policy (local-storage guarantee)
+│   │   ├── profile/        # Preferences & local data management
+│   │   ├── results/        # Exam score breakdown & review
+│   │   ├── review/         # Missed questions remediation hub
+│   │   ├── terms/          # Terms & educational disclaimer
+│   │   ├── layout.tsx      # Root layout
+│   │   └── page.tsx        # Modern landing page
+│   ├── components/         # Reusable UI components
+│   │   ├── exam/           # ExamTimer, QuestionNavigator, SubmitDialog
+│   │   ├── layout/         # AppLayout, Navbar, Footer
+│   │   └── questions/      # QuestionCard, AnswerOption
+│   ├── data/
+│   │   └── questions.json  # Complete 558+ question repository
+│   ├── lib/                # Business logic & utilities
+│   │   ├── mockExams.ts    # 65Q mock exam definitions & generator
+│   │   ├── questions.ts    # Filtering, indexing, and search engine
+│   │   └── storage.ts      # Type-safe LocalStorage scoring handlers
+│   └── types/              # TypeScript interfaces (Exam, Question)
+├── .gitignore              # Production-grade ignore rules for Vercel
+├── next.config.ts          # Next.js configuration
+├── package.json            # Project dependencies & scripts
+└── tsconfig.json           # TypeScript configuration
+```
+
+---
+
+## 🚀 Getting Started Locally
+
+### Prerequisites
+- Node.js 18.18+ or 20+
+- npm, yarn, or pnpm
+
+### Installation
 
 ```bash
-# 1. Install dependencies
+# 1. Clone the repository
+git clone https://github.com/Jayanesh2494/CloudPrep.git
+
+# 2. Navigate to the project directory
+cd CloudPrep
+
+# 3. Install dependencies
 npm install
 
-# 2. Run the Next.js development server
+# 4. Start the local development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-To validate TypeScript and build for production:
+### Production Build
+
 ```bash
 npm run build
+npm run start
 ```
 
 ---
 
-## Deploying to Vercel
+## ☁️ Deployment on Vercel
 
-CloudPrep is configured for 1-click deployment on [Vercel](https://vercel.com):
+CloudPrep is optimized for zero-configuration deployment on **Vercel**:
 
-1. **Push your code to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Update CloudPrep platform"
-   git push origin main
-   ```
-2. **Import into Vercel**:
-   - Go to [vercel.com/new](https://vercel.com/new) and select `Jayanesh2494/CloudPrep`.
-   - **Framework Preset**: Next.js
+1. Fork or push this repository to GitHub: `https://github.com/Jayanesh2494/CloudPrep`
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repository.
+3. Configure the project:
+   - **Framework Preset**: `Next.js`
    - **Build Command**: `npm run build`
    - **Output Directory**: `.next`
-   - **Environment Variables**: *None needed* (all data and scoring logic run client-side).
-3. **Click Deploy**. Vercel will build and deploy the application in ~30 seconds.
+   - **Environment Variables**: *None needed* (100% client-side execution).
+4. Click **Deploy**.
 
 ---
 
-## Disclaimer
+## 📜 Educational Disclaimer
 
-CloudPrep is an independent educational tool designed to help learners prepare for the AWS Certified Cloud Practitioner (CLF-C02) examination. It is not affiliated with, endorsed by, or sponsored by Amazon Web Services, Inc. (AWS). AWS and AWS Certified Cloud Practitioner are registered trademarks of Amazon.com, Inc. or its affiliates.
+CloudPrep is an independent educational tool designed to help candidates prepare for the AWS Certified Cloud Practitioner (CLF-C02) examination. It is not affiliated with, endorsed by, or sponsored by Amazon Web Services, Inc. (AWS). AWS and AWS Certified Cloud Practitioner are registered trademarks of Amazon.com, Inc. or its affiliates.
