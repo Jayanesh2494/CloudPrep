@@ -14,7 +14,7 @@
 **A responsive, production-grade exam preparation platform for the AWS Certified Cloud Practitioner (CLF-C02) exam.**  
 Equipped with realistic 65-question timed mock exams, self-paced practice drills, real-time performance analytics, and zero-login client-side persistence.
 
-[🚀 **Launch Live Application**](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/) • [📖 **Explore Documentation**](#-key-features) • [🛠️ **Add Questions**](#-how-to-update--add-service-wise-questions)
+[🚀 **Launch Live Application**](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/) • [✨ **Features**](#-key-features) • [🏛️ **CLF-C02 Domains**](#️-official-clf-c02-blueprint-alignment) • [🛠️ **Service-Wise Guide**](#-updating--adding-service-wise-questions) • [💻 **Local Setup**](#-local-development)
 
 </div>
 
@@ -22,8 +22,8 @@ Equipped with realistic 65-question timed mock exams, self-paced practice drills
 
 ## 🌐 Live Deployment
 
-> **Production URL**: [https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/)  
-> Hosted on **Vercel** with zero-config static optimization and instant client-side execution.
+> **Production Application**: [https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/)  
+> Deployed on **Vercel** with client-side execution and instant response times.
 
 ---
 
@@ -53,17 +53,17 @@ CloudPrep structures its questions and diagnostic performance tracking according
 
 ---
 
-## 📦 How to Update & Add Service-Wise Questions
+## 🛠️ Updating & Adding Service-Wise Questions
 
-All question data is stored centrally in a clean, versioned JSON file:
+All question data is stored centrally in:
 
 ```text
 src/data/questions.json
 ```
 
-### 1. Question JSON Schema
+### Question Format
 
-To add new questions or expand coverage for specific AWS services, append a question object to `src/data/questions.json`:
+When adding new questions or expanding questions for specific AWS services (e.g. S3, EC2, IAM, DynamoDB, VPC, Lambda), use the following structure:
 
 ```json
 {
@@ -92,51 +92,14 @@ To add new questions or expand coverage for specific AWS services, append a ques
     "CLF-C02",
     "Domain-3",
     "Amazon DynamoDB",
-    "NoSQL",
-    "Databases"
+    "NoSQL"
   ],
   "status": "published",
   "contentVersion": 1
 }
 ```
 
-### 2. Multi-Select Questions Format
-
-For questions with multiple correct options (e.g., *"Which two of the following..."*), set `"type": "multiple"` and provide all correct option IDs:
-
-```json
-{
-  "type": "multiple",
-  "correctOptionIds": ["A", "D"]
-}
-```
-
-### 3. Service Tagging & Instant Search
-
-CloudPrep's practice search engine (`filterQuestions` in [`src/lib/questions.ts`](src/lib/questions.ts)) automatically indexes:
-- The question text
-- All option choices
-- The explanation text
-- **Every tag in the `tags` array**
-
-When learners type any AWS service name (e.g. `S3`, `EC2`, `Lambda`, `IAM`, `CloudFront`, `VPC`, `Organizations`) into the search bar, CloudPrep instantly filters all matching questions.
-
-### 4. Creating Dedicated Service-Specific Drills (Optional)
-
-You can define custom, service-specific practice exams in [`src/lib/mockExams.ts`](src/lib/mockExams.ts):
-
-```typescript
-{
-  id: "mock-security-drill",
-  title: "AWS Security & Identity Specialist Drill",
-  description: "Targeted drill covering IAM, AWS KMS, GuardDuty, AWS WAF, and Shield.",
-  questionCount: 25,
-  durationMinutes: 35,
-  questionIds: allQuestions
-    .filter((q) => q.tags.some((t) => t.toLowerCase().includes("security") || t.toLowerCase().includes("iam")))
-    .map((q) => q.id),
-}
-```
+> **Tip for Service Search**: Any service keyword included in `tags` (or mentioned in `questionText`) is immediately searchable by learners in Practice Mode.
 
 ---
 
@@ -165,7 +128,7 @@ CloudPrep/
 │   │   ├── layout/         # AppLayout, Navbar, Footer
 │   │   └── questions/      # QuestionCard, AnswerOption
 │   ├── data/
-│   │   └── questions.json  # Complete 558+ question repository
+│   │   └── questions.json  # Complete question repository
 │   ├── lib/                # Business logic & utilities
 │   │   ├── mockExams.ts    # 65Q mock exam definitions & generator
 │   │   ├── questions.ts    # Filtering, indexing, and search engine
@@ -179,51 +142,20 @@ CloudPrep/
 
 ---
 
-## 🚀 Getting Started Locally
-
-### Prerequisites
-- Node.js 18.18+ or 20+
-- npm, yarn, or pnpm
-
-### Installation
+## 💻 Local Development
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/Jayanesh2494/CloudPrep.git
-
-# 2. Navigate to the project directory
-cd CloudPrep
-
-# 3. Install dependencies
+# 1. Install dependencies
 npm install
 
-# 4. Start the local development server
+# 2. Run the Next.js development server
 npm run dev
-```
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Production Build
-
-```bash
+# 3. Build for production
 npm run build
-npm run start
 ```
 
----
-
-## ☁️ Deployment on Vercel
-
-CloudPrep is optimized for zero-configuration deployment on **Vercel**:
-
-1. Fork or push this repository to GitHub: `https://github.com/Jayanesh2494/CloudPrep`
-2. Go to [vercel.com/new](https://vercel.com/new) and import the repository.
-3. Configure the project:
-   - **Framework Preset**: `Next.js`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `.next`
-   - **Environment Variables**: *None needed* (100% client-side execution).
-4. Click **Deploy**.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
