@@ -14,7 +14,7 @@
 **A responsive, production-grade exam preparation platform for the AWS Certified Cloud Practitioner (CLF-C02) exam.**  
 Equipped with realistic 65-question timed mock exams, self-paced practice drills, real-time performance analytics, and zero-login client-side persistence.
 
-[🚀 **Launch Live Application**](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/) • [✨ **Features**](#-key-features) • [🏛️ **CLF-C02 Domains**](#️-official-clf-c02-blueprint-alignment) • [🛠️ **Service-Wise Guide**](#-updating--adding-service-wise-questions) • [💻 **Local Setup**](#-local-development)
+[🚀 **Launch Live Application**](https://cloud-prep-two.vercel.app/) • [✨ **Features**](#-key-features) • [🏛️ **CLF-C02 Domains**](#️-official-clf-c02-blueprint-alignment) • [🛠️ **Service-Wise Guide**](#-updating--adding-service-wise-questions) • [💻 **Local Setup**](#-local-development)
 
 </div>
 
@@ -22,7 +22,7 @@ Equipped with realistic 65-question timed mock exams, self-paced practice drills
 
 ## 🌐 Live Deployment
 
-> **Production Application**: [https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/](https://cloud-prep-itgm5xa5y-jayanesh-projects.vercel.app/)  
+> **Production Application**: [https://cloud-prep-two.vercel.app/](https://cloud-prep-two.vercel.app/)  
 > Deployed on **Vercel** with client-side execution and instant response times.
 
 ---
